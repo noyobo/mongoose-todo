@@ -1,7 +1,12 @@
 'use strict';
 
+var Task = require('../modules/todo').Task;
+
 module.exports.home = function* home() {
-  this.body = yield this.render('layout', {
-    title: 'hello mongoose'
+
+  var data = yield Task.find({}).sort({date: -1}).exec();
+
+  this.body = yield this.render('todolist', {
+    tasks: data
   });
 };

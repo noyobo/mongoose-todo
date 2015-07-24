@@ -1,3 +1,17 @@
-<div>
-  123131
-</div>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Mongoose TODO</title>
+    <link rel="stylesheet" href="css/todo.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+
+<body>
+  <section id="todoapp">
+    {{{block ('todoapp')}}}
+  </section>
+  {{include ('./footer')}}
+</body>
+
+</html>
