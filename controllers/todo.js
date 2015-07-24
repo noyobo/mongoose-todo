@@ -1,22 +1,21 @@
 'use strict';
 var copy = require('copy-to');
+var moment = require('moment');
+
 var Task = require('../modules/todo').Task;
 
 module.exports.home = function* home() {
-
   var data = yield Task.find({}).sort({
     date: -1
   }).exec();
-
   var completed = 0;
-
   for (var i = 0; i < data.length; i++) {
     var task = data[i];
+    task.time = moment(new Date(task.date)).format('YYYY-MM-DD HH:mm:ss');
     if (task.completed) {
       completed += 1;
     }
   };
-
   this.body = yield this.render('todolist', {
     tasks: data,
     completedCount: completed
@@ -40,7 +39,8 @@ module.exports.add = function* add() {
     };
   } else {
     var addTask = new Task({
-      todo: data.todo
+      todo: data.todo,
+      date: Date.now()
     });
     try {
       saveData = yield addTask.saveAsync();

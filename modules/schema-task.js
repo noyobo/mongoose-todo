@@ -16,7 +16,7 @@ var mongoose = require('mongoose');
 var SchemaTask = new mongoose.Schema({
   todo: { type: String, required: true },
   completed: { type: Boolean, default: false, required: true },
-  date: { type: Date, default: Date.now(), required: true }
+  date: { type: Date, required: true }
 });
 
 /**

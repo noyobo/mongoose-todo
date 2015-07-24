@@ -31,6 +31,7 @@
     "koa-logger": "^1.2.0",
     "koa-route": "^1.1.4",
     "koa-static": "^1.4.5",
+    "moment": "~2.10.3",
     "mongoose": "~4.0.8",
     "xtemplate": "~4.3.0",
     "xtpl": "~3.2.0"
