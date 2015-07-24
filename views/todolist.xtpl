@@ -10,23 +10,25 @@
   <input id="toggle-all" type="checkbox">
   <label for="toggle-all">Mark all as complete</label>
   <ul id="todo-list">
-    <li class="completed">
-      <div class="view">
-        <input class="toggle" type="checkbox">
-        <label>aaaa</label>
-        <button class="destroy"></button>
-      </div>
-    </li>
+    {{#each(tasks)}}
+      <li {{#if(completed)}}class="completed"{{/if}}>
+        <div class="view">
+          <input class="toggle" type="checkbox" {{#if(completed)}}checked="checked"{{/if}}>
+          <label>{{todo}}</label>
+          <button data-id="{{id}}" class="destroy"></button>
+        </div>
+      </li>
+    {{/each}}
   </ul>
 </section>
 
 <footer id="footer">
   <span id="todo-count">
-   <strong>1</strong>
+   <strong>{{tasks.length}}</strong>
     <span> item left</span>
   </span>
   <button id="clear-completed">
-    Clear completed (1)
+    Clear completed ({{completedCount}})
   </button>
 </footer>
 {{/block}}

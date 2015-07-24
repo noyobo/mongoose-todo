@@ -23,7 +23,10 @@
   },
   "homepage": "https://github.com/noyobo/mongoose-todo#readme",
   "dependencies": {
+    "bluebird": "~2.9.34",
+    "copy-to": "^2.0.1",
     "koa": "^0.6.0",
+    "koa-body": "~1.2.1",
     "koa-compress": "^1.0.6",
     "koa-logger": "^1.2.0",
     "koa-route": "^1.1.4",
