@@ -15,19 +15,4 @@ describe('Routes', function () {
         .expect(200, done);
     });
   });
-  describe('GET /messages', function () {
-    it('should return 200', function (done) {
-      request()
-        .get('/messages')
-        .expect('Content-Type', /json/)
-        .expect(200, done);
-    });
-  });
-  describe('GET /messages/notfound', function () {
-    it('should return 404', function (done) {
-      request()
-        .get('/messages/notfound')
-        .expect(404, done);
-    });
-  });
 });

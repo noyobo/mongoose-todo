@@ -7,15 +7,15 @@
 </header>
 
 <section id="main">
-  <input id="toggle-all" type="checkbox">
+  <input id="toggle-all" type="checkbox" {{#if(completedCount === tasks.length)}}checked="checked"{{/if}}>
   <label for="toggle-all">Mark all as complete</label>
   <ul id="todo-list">
     {{#each(tasks)}}
-      <li {{#if(completed)}}class="completed"{{/if}}>
+      <li data-id="{{id}}" id="J_todo_{{id}}" {{#if(completed)}}class="completed"{{/if}}>
         <div class="view">
           <input class="toggle" type="checkbox" {{#if(completed)}}checked="checked"{{/if}}>
           <label>{{todo}}</label>
-          <button data-id="{{id}}" class="destroy"></button>
+          <button class="destroy"></button>
         </div>
       </li>
     {{/each}}
@@ -24,11 +24,11 @@
 
 <footer id="footer">
   <span id="todo-count">
-   <strong>{{tasks.length}}</strong>
+   <strong id="todo-counts">{{tasks.length - completedCount}}</strong>
     <span> item left</span>
   </span>
   <button id="clear-completed">
-    Clear completed ({{completedCount}})
+    Clear completed (<span id="completed-count">{{completedCount}}</span>)
   </button>
 </footer>
 {{/block}}

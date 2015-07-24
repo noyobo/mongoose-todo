@@ -1,9 +1,7 @@
 'use strict';
-var todo = require('./controllers/todo');
 var compress = require('koa-compress');
 var logger = require('koa-logger');
 var serve = require('koa-static');
-var route = require('koa-route');
 var koaBody   = require('koa-body');
 var koa = require('koa');
 var path = require('path');
@@ -13,10 +11,12 @@ var app = module.exports = koa();
 
 // Logger
 app.use(logger());
-app.use(koaBody());
+app.use(koaBody({
+  strict: false
+}));
 
-app.use(route.get('/', todo.home));
-app.use(route.post('/api/add', todo.add));
+app.use(require('./routers/home-router').routes());
+app.use(require('./routers/api-router').routes());
 
 // Serve static files
 app.use(serve(path.join(__dirname, 'public')));
@@ -24,7 +24,7 @@ app.use(serve(path.join(__dirname, 'bower_components')));
 
 xtplRender(app, {
   views: './views/'
-})
+});
 
 // Compress
 app.use(compress());
