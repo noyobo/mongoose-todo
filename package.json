@@ -1,0 +1,22 @@
+{
+  "name": "mongoose-todo",
+  "version": "0.1.0",
+  "description": "mongoose todo list app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/noyobo/mongoose-todo.git"
+  },
+  "keywords": [
+    "todo"
+  ],
+  "author": "noyobo <noyobo@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noyobo/mongoose-todo/issues"
+  },
+  "homepage": "https://github.com/noyobo/mongoose-todo#readme"
+}
